@@ -20,13 +20,13 @@
 <body>
 <form method="POST" action="{{ route('login') }}">
 {{ csrf_field() }}
-  <div class="container-scroller">
-    <div class="container-fluid page-body-wrapper full-page-wrapper auth-page">
-      <div class="content-wrapper d-flex align-items-center auth theme-one">
+  <div class="container-scroller" >
+    <div class="container-fluid page-body-wrapper full-page-wrapper auth-page" >
+      <div class="content-wrapper d-flex align-items-center auth theme-one" style="background-image:url('images/background.jpeg'); background-repeat:no-repeat; background-size:cover">
 
-        <div class="row w-100">
-        <div class="col-md-12" style="margin-bottom: 20px;">
-        <h2 style="text-align: center;">PERPUSKU - SDN72 MUARO JAMBI</h2>
+        <div class="row w-100" >
+        <div class="col-md-12 text-dark bg-default" style="margin-bottom: 20px;">
+        <h2 style="text-align: center; ">PERPUSKU - SDN72 MUARO JAMBI</h2>
         </div>
         <div class="col-lg-4 mx-auto">
             <div class="auto-form-wrapper">
