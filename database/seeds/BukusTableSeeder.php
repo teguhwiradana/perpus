@@ -54,6 +54,34 @@ class BukusTableSeeder extends Seeder
               'created_at'      => \Carbon\Carbon::now(),
               'updated_at'      => \Carbon\Carbon::now()
             ],
+            [
+              'id'  			=> 4,
+              'judul'  			=> 'Android Application',
+              'isbn'			=> '9920392000',
+              'pengarang' 		=> 'Dina Aulia',
+              'penerbit'		=> 'PT. Restu Ayah',
+              'tahun_terbit'	=> 2018,
+              'jumlah_buku'		=> 5,
+              'deskripsi'		=> 'Buku Pertama Belajar Pemrograman Java Utk Pemula',
+              'lokasi'			=> 'rak2',
+              'cover'			=> 'create_your.jpg',
+              'created_at'      => \Carbon\Carbon::now(),
+              'updated_at'      => \Carbon\Carbon::now()
+            ],
+            [
+              'id'  			=> 5,
+              'judul'  			=> 'Android Application',
+              'isbn'			=> '9920392000',
+              'pengarang' 		=> 'Dina Aulia',
+              'penerbit'		=> 'PT. Restu Ayah',
+              'tahun_terbit'	=> 2018,
+              'jumlah_buku'		=> 5,
+              'deskripsi'		=> 'Buku Pertama Belajar Pemrograman Java Utk Pemula',
+              'lokasi'			=> 'rak2',
+              'cover'			=> 'create_your.jpg',
+              'created_at'      => \Carbon\Carbon::now(),
+              'updated_at'      => \Carbon\Carbon::now()
+            ],
         ]);
     }
 }

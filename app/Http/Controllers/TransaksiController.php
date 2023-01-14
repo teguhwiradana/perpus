@@ -34,7 +34,7 @@ class TransaksiController extends Controller
             $datas = Transaksi::where('anggota_id', Auth::user()->anggota->id)
                                 ->get();
         } else {
-            $datas = Transaksi::get();
+            $datas = Transaksi::where('status','kembali')->get();
         }
         return view('transaksi.index', compact('datas'));
     }
@@ -100,12 +100,12 @@ class TransaksiController extends Controller
 
         // dd($cekBuku);
 
-        if($cekJumlahPinjam>=5){
+        if($cekJumlahPinjam>=3){
             alert()->error('Gagal.','Batas pinjaman anda sudah limit, silahkan kembalikan buku terlebih dahulu !');
             return redirect()->route('transaksi.index');
         }
         elseif($cekBuku){
-            alert()->error('Gagal.','Anda Bakekok !');
+            alert()->error('Gagal.','Anda sudah meminjam buku ini, silahkan kembalikan terlebih dahulu');
             return redirect()->route('transaksi.index');
         }
         
@@ -178,18 +178,51 @@ class TransaksiController extends Controller
     public function update(Request $request, $id)
     {
         $transaksi = Transaksi::find($id);
+        $hariini = \Carbon\Carbon::now()->format('Y-m-d');
+        $harikembali =$transaksi->tgl_kembali;
+        
+        $date1 = \Carbon\Carbon::parse($harikembali);
+        $date2 = \Carbon\Carbon::parse($hariini);
 
-        $transaksi->update([
-                'status' => 'kembali'
+        if($date2>$date1){
+            $selisih = $date2->diffInDays($date1);
+            $denda = $selisih *1000;
+            // $dendaformat = int($denda);
+            // dd($denda);
+
+            $transaksi->update([
+                        'status' => 'kembali',
+                        'tgl_kembali' => \Carbon\Carbon::now(),
+                        'denda' => $denda
+                        ]);
+        
+                $transaksi->buku->where('id', $transaksi->buku->id)
+                                ->update([
+                                    'jumlah_buku' => ($transaksi->buku->jumlah_buku + 1),
+                                    ]);
+        
+                alert()->success('Berhasil.','Data telah diubah!');
+                return redirect()->route('transaksi.index');
+        }
+        else {
+            $transaksi->update([
+                'status' => 'kembali',
+                'tgl_kembali' => \Carbon\Carbon::now(),
+                'denda' => 0
                 ]);
 
-        $transaksi->buku->where('id', $transaksi->buku->id)
-                        ->update([
-                            'jumlah_buku' => ($transaksi->buku->jumlah_buku + 1),
-                            ]);
+                $transaksi->buku->where('id', $transaksi->buku->id)
+                                ->update([
+                                    'jumlah_buku' => ($transaksi->buku->jumlah_buku + 1),
+                                    ]);
 
-        alert()->success('Berhasil.','Data telah diubah!');
-        return redirect()->route('transaksi.index');
+                alert()->success('Berhasil.','Data telah diubah!');
+                return redirect()->route('transaksi.index');
+        }
+    
+
+
+           
     }
 
     /**

@@ -14,9 +14,9 @@
 @section('content')
 <div class="row">
 
-  <div class="col-lg-2">
+  {{-- <div class="col-lg-2">
     <a href="{{ route('transaksi.create') }}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-plus"></i> Tambah Transaksi</a>
-  </div>
+  </div> --}}
     <div class="col-lg-12">
                   @if (Session::has('message'))
                   <div class="alert alert-{{ Session::get('message_type') }}" id="waktu2" style="margin-top:10px;">{{ Session::get('message') }}</div>
@@ -28,7 +28,7 @@
               <div class="card">
 
                 <div class="card-body">
-                  <h4 class="card-title">Data Transaksi</h4>
+                  <h4 class="card-title">Data Transaksi yang belum dikembalikan</h4>
                   
                   <div class="table-responsive">
                     <table class="table table-striped" id="table">
@@ -47,9 +47,9 @@
                             Tgl Pinjam
                           </th>
                           <th>
-                            Tgl Kembali
+                            Tgl Seharusnya Kembali
                           </th>
-                          <th>Denda</th>
+                          <th>denda</th>
                           <th>
                             Status
                           </th>
