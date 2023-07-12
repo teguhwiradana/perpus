@@ -40,7 +40,7 @@
                             NIS
                           </th>
                           <th>
-                            Prodi
+                            Kelas
                           </th>
                           <th>
                             Jenis Kelamin
@@ -69,13 +69,7 @@
                           </td>
 
                           <td>
-                          @if($data->prodi == 'TI')
-                            Teknik Informatika
-                          @elseif($data->prodi == 'SI')
-                            Sistem Informasi
-                          @else
-                            Kesehatan Masyarakat
-                          @endif
+                          {{ $data->prodi }}
                           </td>
                           <td>
                             {{$data->jk === "L" ? "Laki - Laki" : "Perempuan"}}
