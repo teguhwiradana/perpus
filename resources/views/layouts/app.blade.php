@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>PERPUSKU - SDN 72 Muaro Jambi</title>
+  <title>PERPUSKU - SMP N 8 MUARO JAMBI</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{asset('vendors/iconfonts/mdi/css/materialdesignicons.min.css')}}">
   <link rel="stylesheet" href="{{asset('vendors/css/vendor.bundle.base.css')}}">
@@ -30,7 +30,7 @@
     <nav class="navbar bg-warning col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
         <a class="navbar-brand brand-logo" href="index.html" style="color: #2d2d2d">
-          SDN 72 MUARO JAMBI
+          SMP 08 MUARO JAMBI
         </a>
            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="icon-menu"></span>
@@ -89,7 +89,7 @@
         <footer class="footer">
           <div class="container-fluid clearfix">
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">
-            <a href="https://jekysungunknown.github.io" target="_blank">Perpus SDN 72 Muaro Jambi</a>.</span>
+            <a href="https://jekysungunknown.github.io" target="_blank">Perpus SMP 08 Muaro Jambi</a>.</span>
           </div>
         </footer>
         <!-- partial -->
