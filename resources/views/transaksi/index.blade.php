@@ -103,16 +103,14 @@
                             <form action="{{ route('transaksi.update', $data->id) }}" method="post" enctype="multipart/form-data">
                               {{ csrf_field() }}
                               {{ method_field('put') }}
-                              <button class="dropdown-item" onclick="return confirm('Anda yakin data ini sudah kembali?')"> Sudah Kembali
+                              <button class="dropdown-item" onclick="return confirm('Anda yakin data ini sudah kembali?')"> kembali
                               </button>
                             </form>
                             @endif
-                              <form action="{{ route('transaksi.destroy', $data->id) }}" class="pull-left"  method="post">
-                              {{ csrf_field() }}
-                              {{ method_field('delete') }}
-                              <button class="dropdown-item" onclick="return confirm('Anda yakin ingin menghapus data ini?')"> Delete
-                              </button>
-                            </form>
+                             
+                              <a href="{{ route('transaksi.edit', $data->id) }}" class="dropdown-item" onclick="return confirm('Anda yakin ingin mengubah data ini?')"> Perpanjang
+                              </a>
+                            
                           </div>
                         </div>
                         @endif

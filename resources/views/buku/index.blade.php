@@ -56,6 +56,9 @@
                             Pengarang
                           </th>
                           <th>
+                            Penerbit
+                          </th>
+                          <th>
                             Tahun
                           </th>
                           <th>
@@ -78,18 +81,18 @@
                           @else
                             <img src="{{url('images/buku/default.png')}}" alt="image" style="margin-right: 10px;" />
                           @endif
+                          <td>
+                            {{$data->isbn}}
+                          </td>
                           <a href="{{route('buku.show', $data->id)}}"> 
                             {{$data->judul}}
                           </a>
                           </td>
                           <td>
-                          
-                            {{$data->isbn}}
-                          
-                          </td>
-
-                          <td>
                             {{$data->pengarang}}
+                          </td>
+                          <td>
+                            {{ $data->penerbit }}
                           </td>
                           <td>
                             {{$data->tahun_terbit}}

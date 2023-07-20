@@ -23,4 +23,12 @@ class TransaksiKembaliController extends Controller
         }
         return view('transaksi.kembali', compact(['datas']));
     }
+    public function perpanjang(Request $request,$id){
+        $transaksi = Transaksi::find($id);
+        $transaksi->tgl_kembali = $request->tgl_kembali;
+        
+        $transaksi->update();
+
+        return redirect()->route('transaksi.kembali');
+    }
 }

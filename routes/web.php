@@ -34,7 +34,8 @@ Route::get('/format_buku', 'BukuController@format');
 Route::post('/import_buku', 'BukuController@import');
 
 Route::resource('transaksi', 'TransaksiController');
-Route::get('/kembali','TransaksiKembaliController@index');
+Route::get('/kembali','TransaksiKembaliController@index')->name('transaksi.kembali');
+Route::post('/perpanjang/{id}','TransaksiKembaliController@perpanjang')->name('transaksi.perpanjang');
 Route::get('/laporan/trs', 'LaporanController@transaksi');
 Route::get('/laporan/trs/pdf', 'LaporanController@transaksiPdf');
 Route::get('/laporan/trs/excel', 'LaporanController@transaksiExcel');

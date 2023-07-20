@@ -159,13 +159,15 @@ class TransaksiController extends Controller
     public function edit($id)
     {   
         $data = Transaksi::findOrFail($id);
+        $bukus = Buku::where('jumlah_buku', '>', 0)->get();
+        // dd($data);
 
         if((Auth::user()->level == 'user') && (Auth::user()->anggota->id != $data->anggota_id)) {
                 Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
                 return redirect()->to('/');
         }
 
-        return view('buku.edit', compact('data'));
+        return view('transaksi.edit', compact('data','bukus'));
     }
 
     /**

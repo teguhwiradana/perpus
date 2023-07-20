@@ -46,6 +46,17 @@ $(document).ready(function() {
                     <div class="card-body">
                       <h4 class="card-title">Edit Buku <b>{{$data->judul}}</b> </h4>
                       <form class="forms-sample">
+                          <div class="form-group{{ $errors->has('isbn') ? ' has-error' : '' }}">
+                              <label for="isbn" class="col-md-4 control-label">ISBN</label>
+                              <div class="col-md-6">
+                                  <input id="isbn" type="text" class="form-control" name="isbn" value="{{ $data->isbn }}" required>
+                                  @if ($errors->has('isbn'))
+                                      <span class="help-block">
+                                          <strong>{{ $errors->first('isbn') }}</strong>
+                                      </span>
+                                  @endif
+                              </div>
+                          </div>
                         <div class="form-group{{ $errors->has('judul') ? ' has-error' : '' }}">
                             <label for="judul" class="col-md-4 control-label">Judul</label>
                             <div class="col-md-6">
@@ -53,17 +64,6 @@ $(document).ready(function() {
                                 @if ($errors->has('judul'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('judul') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="form-group{{ $errors->has('npm') ? ' has-error' : '' }}">
-                            <label for="isbn" class="col-md-4 control-label">ISBN</label>
-                            <div class="col-md-6">
-                                <input id="isbn" type="text" class="form-control" name="isbn" value="{{ $data->isbn }}" required>
-                                @if ($errors->has('isbn'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('isbn') }}</strong>
                                     </span>
                                 @endif
                             </div>
