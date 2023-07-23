@@ -49,7 +49,7 @@
                           <th>
                             Tgl Seharusnya Kembali
                           </th>
-                          <th>denda</th>
+                          {{-- <th>denda</th> --}}
                           <th>
                             Status
                           </th>
@@ -81,7 +81,7 @@
                           <td>
                             {{date('d/m/y', strtotime($data->tgl_kembali))}}
                           </td>
-                          <td>{{ $data->denda }}</td>
+                          {{-- <td>{{ $data->denda }}</td> --}}
                           <td>
                           @if($data->status == 'pinjam')
                             <label class="badge badge-warning">Pinjam</label>
@@ -97,12 +97,8 @@
                           </button>
                           <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
                           @if($data->status == 'pinjam')
-                          <form action="{{ route('transaksi.update', $data->id) }}" method="post" enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            {{ method_field('put') }}
-                            <button class="dropdown-item" onclick="return confirm('Anda yakin data ini sudah kembali?')"> kembali
-                            </button>
-                          </form>
+                          <a href="{{ route('transaksi.check',$data->id) }}" class="dropdown-item">Check</a>
+                          
                           <a href="{{ route('transaksi.edit', $data->id) }}" class="dropdown-item" onclick="return confirm('Anda yakin ingin mengubah data ini?')"> Perpanjang
                           </a>
                           @endif
@@ -116,7 +112,7 @@
                         </div>
                         @else
                         @if($data->status == 'pinjam')
-                        <form action="{{ route('transaksi.update', $data->id) }}" method="post" enctype="multipart/form-data">
+                          <form action="{{ route('transaksi.update', $data->id) }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             {{ method_field('put') }}
                             <button class="btn btn-info btn-xs" onclick="return confirm('Anda yakin data ini sudah kembali?')">kembali

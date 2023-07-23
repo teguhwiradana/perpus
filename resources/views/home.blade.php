@@ -40,7 +40,7 @@
                       <i class="mdi mdi-receipt text-warning icon-lg"></i>
                     </div>
                     <div class="float-right">
-                      <p class="mb-0 text-right">Sedang Pinjam</p>
+                      <p class="mb-0 text-right">Sedang anda Pinjam</p>
                       <div class="fluid-container">
                         <h3 class="font-weight-medium text-right mb-0">{{$transaksi->where('status', 'pinjam')->count()}}</h3>
                       </div>
@@ -91,6 +91,20 @@
                   </p>
                 </div>
               </div>
+            </div>
+            <div class="col-xl-12 col-lg-12 grid-margin stretch-card">
+                <div class="card card-statistic">
+                  <div class="card-body">
+                    <div class="clearfix">
+                      <div class="float-left">
+                      </div>
+                      <div class="float-right">
+                        <p class="mb-0 text-right">Denda</p>
+                        <h3 class="font-weight-medium text-right mb-0">100000</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
 </div>
 <div class="row" >

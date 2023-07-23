@@ -26,7 +26,7 @@
 
 @section('content')
 
-<form method="POST" action="{{ route('transaksi.perpanjang',$data->id) }}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('transaksi.update',$data->id) }}" enctype="multipart/form-data">
     {{ csrf_field() }}
 <div class="row">
             <div class="col-md-12 d-flex align-items-stretch grid-margin">
@@ -34,7 +34,7 @@
                 <div class="col-12">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title">perpanjang transaksi</h4>
+                      <h4 class="card-title">Detail Transaksi</h4>
                     
                         <div class="form-group{{ $errors->has('kode_transaksi') ? ' has-error' : '' }}">
                             <label for="kode_transaksi" class="col-md-4 control-label">Kode Transaksi</label>
@@ -50,7 +50,7 @@
                          <div class="form-group{{ $errors->has('tgl_pinjam') ? ' has-error' : '' }}">
                             <label for="tgl_pinjam" class="col-md-4 control-label">Tanggal Pinjam</label>
                             <div class="col-md-3">
-                                <input id="tgl_pinjam" type="date" class="form-control" name="tgl_pinjam" value="{{ date('Y-m-d', strtotime(Carbon\Carbon::today()->toDateString())) }}" required @if(Auth::user()->level == 'user') readonly @endif>
+                                <input id="tgl_pinjam" type="date" class="form-control" name="tgl_pinjam" value="{{ date('Y-m-d', strtotime($data->tgl_pinjam)) }}" required @if(Auth::user()->level == 'user') readonly @endif>
                                 @if ($errors->has('tgl_pinjam'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('tgl_pinjam') }}</strong>
@@ -102,6 +102,22 @@
                                  
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="denda">Denda</label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="denda" value="{{ $denda }}" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="denda">Keterlambatan</label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="denda" value="{{ $selisih }} Hari" readonly>
+                                </div>
+                            </div>
+                        </div>
                         @else
                         <div class="form-group{{ $errors->has('anggota_id') ? ' has-error' : '' }}">
                             <label for="anggota_id" class="col-md-4 control-label">Anggota</label>
@@ -119,13 +135,15 @@
                         </div>
                         @endif
 
-
-                        <button type="submit" class="btn btn-primary" id="submit">
-                                    Submit
-                        </button>
-                        <button type="reset" class="btn btn-danger">
-                                    Reset
-                        </button>
+                        <form action="{{ route('transaksi.update', $data->id) }}" method="post" enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            {{ method_field('put') }}
+                            <button class="btn btn-primary" onclick="return confirm('Anda yakin data ini sudah kembali?')"> Proses pengembalian
+                            </button>
+                      </form>
+                        {{-- <button type="submit" class="btn btn-primary" id="submit">
+                                    Proses Pengembalian
+                        </button> --}}
                         <a href="{{route('transaksi.index')}}" class="btn btn-light pull-right">Back</a>
                     </div>
                   </div>
