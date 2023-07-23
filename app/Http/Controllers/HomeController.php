@@ -36,9 +36,9 @@ class HomeController extends Controller
             $datas = Transaksi::where('status', 'pinjam')
                                 ->where('anggota_id', Auth::user()->anggota->id)
                                 ->get();
-            $denda = Transaksi::where('tgl_kembali'>'tgl_pinjam')
-                                ->where('anggota_id', Auth::user()->anggota->id)->get();
-            dd($denda);
+            // $denda = Transaksi::where('tgl_kembali'>'tgl_pinjam')
+            //                     ->where('anggota_id', Auth::user()->anggota->id)->get();
+            // dd($denda);
         } else {
             $datas = Transaksi::where('status', 'pinjam')->get();
         }
