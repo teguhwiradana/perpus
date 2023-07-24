@@ -40,7 +40,7 @@
                 <div class="card-body">
                   <h4 class="card-title pull-left">Data Buku</h4>
                   {{-- <a href="{{url('format_buku')}}" class="btn btn-xs btn-info pull-right">Format Buku</a> --}}
-                  {{-- <div class="table-responsive"> --}}
+                  <div class="table-responsive">
                     <table class="table table-striped" id="table">
                       <thead>
                         <tr>
