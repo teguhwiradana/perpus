@@ -14,9 +14,9 @@
 @section('content')
 <div class="row">
 
-  {{-- <div class="col-lg-2">
+  <div class="col-lg-2">
     <a href="{{ route('transaksi.create') }}" class="btn btn-primary btn-rounded btn-fw"><i class="fa fa-plus"></i> Tambah Transaksi</a>
-  </div> --}}
+  </div>
     <div class="col-lg-12">
                   @if (Session::has('message'))
                   <div class="alert alert-{{ Session::get('message_type') }}" id="waktu2" style="margin-top:10px;">{{ Session::get('message') }}</div>
@@ -96,18 +96,18 @@
                             Action
                           </button>
                           <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
-                          @if($data->status == 'pinjam')
-                          <a href="{{ route('transaksi.check',$data->id) }}" class="dropdown-item">Check</a>
+                            @if($data->status == 'pinjam')
+                               <a href="{{ route('transaksi.check',$data->id) }}" class="dropdown-item">Check</a>
                           
-                          <a href="{{ route('transaksi.edit', $data->id) }}" class="dropdown-item" onclick="return confirm('Anda yakin ingin mengubah data ini?')"> Perpanjang
-                          </a>
-                          @endif
+                               <a href="{{ route('transaksi.edit', $data->id) }}" class="dropdown-item" onclick="return confirm('Anda yakin ingin mengubah data ini?')"> Perpanjang
+                               </a>
+                            @endif
                             <form action="{{ route('transaksi.destroy', $data->id) }}" class="pull-left"  method="post">
-                            {{ csrf_field() }}
-                            {{ method_field('delete') }}
-                            <button class="dropdown-item" onclick="return confirm('Anda yakin ingin menghapus data ini?')"> Delete
-                            </button>
-                          </form>
+                              {{ csrf_field() }}
+                              {{ method_field('delete') }}
+                              <button class="dropdown-item" onclick="return confirm('Anda yakin ingin menghapus data ini?')"> Delete
+                              </button>
+                            </form>
                           </div>
                         </div>
                         @else

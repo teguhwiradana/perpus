@@ -20,7 +20,7 @@ class TransaksiKembaliController extends Controller
             $datas = Transaksi::where('anggota_id', Auth::user()->anggota->id)
                                 ->get();
         } else {
-            $datas = Transaksi::where('status','pinjam')->get();
+            $datas = Transaksi::get();
         }
         return view('transaksi.kembali', compact(['datas']));
     }

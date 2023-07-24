@@ -48,17 +48,17 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item {{ setActive(['transaksi*']) }}">
+          {{-- <li class="nav-item {{ setActive(['transaksi*']) }}">
             <a class="nav-link" href="{{ url('/kembali') }}">
               <i class="menu-icon mdi mdi-backup-restore"></i>
               <span class="menu-title">Transaksi Kembali </span>
             </a>
-          </li>
+          </li> --}}
           @endif
           <li class="nav-item {{ setActive(['transaksi*']) }}">
             <a class="nav-link" href="{{route('transaksi.index')}}">
               <i class="menu-icon mdi mdi-backup-restore"></i>
-              <span class="menu-title">Transaksi Peminjaman</span>
+              <span class="menu-title">Transaksi</span>
             </a>
           </li>
          

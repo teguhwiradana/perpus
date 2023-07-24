@@ -34,7 +34,7 @@ class TransaksiController extends Controller
             $datas = Transaksi::where('anggota_id', Auth::user()->anggota->id)
                                 ->get();
         } else {
-            $datas = Transaksi::where('status','kembali')->get();
+            $datas = Transaksi::orderBy('kode_transaksi','desc')->get();
         }
         return view('transaksi.index', compact('datas'));
     }
