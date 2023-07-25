@@ -3,7 +3,8 @@
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<style type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	{{-- <style type="text/css">
 		    table {
     border-spacing: 0;
     width: 100%;
@@ -11,21 +12,22 @@
     th {
     background: #404853;
     background: linear-gradient(#687587, #404853);
-    border-left: 1px solid rgba(0, 0, 0, 0.2);
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    color: #fff;
+    border:
+    /* border-left: 1px solid rgba(0, 0, 0, 0.2); */
+    /* border-right: 1px solid rgba(255, 255, 255, 0.1); */
+    color: #000;
     padding: 8px;
     text-align: left;
     text-transform: uppercase;
     }
-    th:first-child {
+    /* th:first-child {
     border-top-left-radius: 4px;
     border-left: 0;
-    }
-    th:last-child {
+    } */
+    /* th:last-child {
     border-top-right-radius: 4px;
     border-right: 0;
-    }
+    } */
     td {
     border-right: 1px solid #c6c9cc;
     border-bottom: 1px solid #c6c9cc;
@@ -79,13 +81,42 @@
     color: #fff;
     text-decoration: none;
     background-color: #009b4e; }
-	</style>
+	</style> --}}
   <link rel="stylesheet" href="">
 	<title>Laporan Data Transaksi</title>
 </head>
 <body>
-<h1 class="center">LAPORAN DATA TRANSAKSI</h1>
- <table id="pseudo-demo">
+  <style type="text/css">
+		table tr td,
+		table tr th{
+			font-size: 9pt;
+		}
+        .container{
+            margin: 10px;
+        }
+        #headrapor{
+            margin-left: 10px;
+        }
+        #headrapor p{
+            margin-bottom: 1px;
+            font-size: 10pt
+        }
+        .header img{
+            margin: 10px;
+        }
+        hr{
+            
+            border: none;
+            height: 2px;
+            /* Set the hr color */
+            color: #333; /* old IE */
+            background-color: #333; /* Modern Browsers */
+
+        }
+	</style>
+<h5 class="text-center">LAPORAN DATA TRANSAKSI</h5>
+<hr>
+                  <table class="table table-bordered">
                       <thead>
                         <tr>
                           <th>
@@ -140,5 +171,34 @@
                       @endforeach
                       </tbody>
                     </table>
+                    <br><br><br>
+
+    <?php
+        function tgl_indo($tanggal){
+            $bulan = array (
+                1 =>   'Januari',
+                'Februari',
+                'Maret',
+                'April',
+                'Mei',
+                'Juni',
+                'Juli',
+                'Agustus',
+                'September',
+                'Oktober',
+                'November',
+                'Desember'
+            );
+            $pecahkan = explode('-', $tanggal);
+            
+            // variabel pecahkan 0 = tanggal
+            // variabel pecahkan 1 = bulan
+            // variabel pecahkan 2 = tahun
+        
+            return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+        }
+    ?>
+    <p align="left" style="margin-left: 470px" id="tanggal" class="mb-5">Muaro Jambi, {{tgl_indo(date('Y-m-d')) }}</p>
+    <p align="left" class="mt-5" style="margin-left: 470px">Kepala Sekolah </p>
 </body>
 </html>

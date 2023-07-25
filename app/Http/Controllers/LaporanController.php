@@ -39,7 +39,7 @@ class LaporanController extends Controller
 
         $datas = Buku::all();
         $pdf = PDF::loadView('laporan.buku_pdf', compact('datas'));
-        return $pdf->download('laporan_buku_'.date('Y-m-d_H-i-s').'.pdf');
+        return $pdf->stream('laporan_buku_'.date('Y-m-d_H-i-s').'.pdf');
     }
 
     public function bukuExcel(Request $request)
@@ -130,7 +130,7 @@ public function transaksi()
 
        // return view('laporan.transaksi_pdf', compact('datas'));
        $pdf = PDF::loadView('laporan.transaksi_pdf', compact('datas'));
-       return $pdf->download('laporan_transaksi_'.date('Y-m-d_H-i-s').'.pdf');
+       return $pdf->stream('laporan_transaksi_'.date('Y-m-d_H-i-s').'.pdf');
     }
 
 
