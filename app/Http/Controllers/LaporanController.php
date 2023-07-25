@@ -31,9 +31,29 @@ class LaporanController extends Controller
 
     public function buku()
     {
-        return view('laporan.buku');
-    }
+        if(Auth::user()->level == 'user') {
+            Alert::info('Oopss..', 'Anda dilarang masuk ke area ini.');
+            return redirect()->to('/');
+        }
 
+        $datas = Buku::get();
+        return view('laporan.buku',compact('datas'));
+    }
+    public function pinjam()
+    {
+        $datas = Transaksi::where('status','pinjam')->get();
+        return view("laporan.pinjam",compact('datas'));
+    }
+    public function denda()
+    {
+        $datas = Transaksi::where('denda','>', 0)->get();
+        return view("laporan.denda",compact('datas'));
+    }
+    public function kembali()
+    {
+        $datas = Transaksi::where('status','kembali')->get();
+        return view("laporan.kembali",compact('datas'));
+    }
     public function bukuPdf()
     {
 
@@ -131,6 +151,13 @@ public function transaksi()
        // return view('laporan.transaksi_pdf', compact('datas'));
        $pdf = PDF::loadView('laporan.transaksi_pdf', compact('datas'));
        return $pdf->stream('laporan_transaksi_'.date('Y-m-d_H-i-s').'.pdf');
+    }
+    public function denda2()
+    {
+        $datas = Transaksi::where('denda','>', 0)->get();
+
+        $pdf = PDF::loadView('laporan.denda_pdf',compact('datas'));
+        return $pdf->stream('laporan_denda_'.date('Y-m-d_H-i-s').'.pdf');
     }
 
 

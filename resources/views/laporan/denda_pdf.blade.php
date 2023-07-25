@@ -151,7 +151,7 @@
                             Tgl Kembali
                           </th>
                           <th>
-                            Status
+                            denda
                           </th>
                         </tr>
                       </thead>
@@ -177,14 +177,14 @@
                             {{date('d/m/y', strtotime($data->tgl_kembali))}}
                           </td>
                           <td>
-                          @if($data->status == 'pinjam')
-                            <label class="badge badge-warning">Pinjam</label>
-                          @else
-                            <label class="badge badge-success">Kembali</label>
-                          @endif
-                          </td>
+                              {{ $data->denda }}
                         </tr>
                       @endforeach
+                      
+                      <tr>
+                        <td colspan="5" class="text-center">Total</td>
+                        <td>{{ ($data->sum('denda')) }}</td>
+                      </tr>
                       </tbody>
                     </table>
                     <br><br><br>

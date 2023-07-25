@@ -40,6 +40,10 @@ Route::post('/perpanjang/{id}','TransaksiKembaliController@perpanjang')->name('t
 Route::get('/laporan/trs', 'LaporanController@transaksi');
 Route::get('/laporan/trs/pdf', 'LaporanController@transaksiPdf');
 Route::get('/laporan/trs/excel', 'LaporanController@transaksiExcel');
+Route::get('/laporan/pinjam','LaporanController@pinjam')->name('laporan.pinjam');
+Route::get('/laporan/kembali','LaporanController@kembali')->name('laporan.kembali');
+Route::get('/laporan/denda','LaporanController@denda')->name('laporan.denda');
+Route::get('/laporan/denda2','LaporanController@denda2')->name('laporan.denda2');
 
 Route::get('/laporan/buku', 'LaporanController@buku');
 Route::get('/laporan/buku/pdf', 'LaporanController@bukuPdf');

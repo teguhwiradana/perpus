@@ -71,13 +71,15 @@
             <div class="collapse" id="ui-laporan">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="{{url('laporan/trs')}}">Laporan Transaksi</a>
+                  <a class="nav-link text-dark" href="{{route('laporan.kembali')}}">Laporan Kembali</a>
                 </li>
-                <!--
                 <li class="nav-item">
-                  <a class="nav-link" href="">Laporan Anggota</a>
+                  <a class="nav-link text-dark" href="{{ route('laporan.pinjam')}}">Laporan Pinjam</a>
+                  <a class="nav-link text-dark" href="{{ route('laporan.denda')}}">Laporan Denda</a>
                 </li>
-                -->
+                {{-- <li class="nav-item">
+                  <a class="nav-link" href="">Laporan Anggota</a>
+                </li> --}}
                  <li class="nav-item">
                   <a class="nav-link" href="{{url('laporan/buku')}}">Laporan Buku</a>
                 </li>

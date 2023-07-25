@@ -37,6 +37,8 @@
         }
 	</style>
 <h5 class="text-center">LAPORAN DATA BUKU</h5>
+<h5 class="text-center">SMP NEGERI 8 MUARA JAMBI</h5>
+<h5 class="text-center">TAHUN PELAJARAN 2022/2023</h5>
  <table class="table table-bordered">
                       <thead>
                         <tr>
@@ -122,12 +124,16 @@
     ?>
     <div class="row">
       <div class="col-md-6">
-        <p align="right" style="margin-right: 470px" id="tanggal" class="mb-5">Muaro Jambi, {{tgl_indo(date('Y-m-d')) }}</p>
-        <p align="right" class="mt-5" style="margin-right: 505px">Kepala Perpustakaan</p>
+        <p align="left" style="margin-left: 30px" id="tanggal" class="mb-0">Kasang Pudak, {{tgl_indo(date('Y-m-d')) }}</p>
+        <p align="left" class="mt-0" style="margin-left: 30px">Mengetahui,</p>
+        <p align="left" style="margin-bottom: 4em;margin-left:30px ;">Kepala Perpustakaan</p>
+        <p align="left" style="margin-left: 30px; margin-top:0">NIP:</p>
       </div>
       <div class="col-md-6">
-        <p align="left" style="margin-left: 470px" id="tanggal" class="mb-5">Muaro Jambi, {{tgl_indo(date('Y-m-d')) }}</p>
-        <p align="left" class="mt-5" style="margin-left: 470px">Kepala Sekolah </p>
+        <p align="left" style="margin-left: 470px" id="tanggal" class="mb-0">Kasang Pudak, {{tgl_indo(date('Y-m-d')) }}</p>
+        <p align="left" class="mt-0" style="margin-left: 470px">Mengetahui,</p>
+        <p align="left" class="mt-0" style="margin-bottom: 4em;margin-left: 470px">Kepala Sekolah </p>
+        <p align="left" class="mt-0" style="margin-left: 470px">NIP:</p>
       </div>
     </div>
 </body>
