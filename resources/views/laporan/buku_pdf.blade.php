@@ -120,7 +120,15 @@
             return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
         }
     ?>
-    <p align="left" style="margin-left: 470px" id="tanggal" class="mb-5">Muaro Jambi, {{tgl_indo(date('Y-m-d')) }}</p>
-    <p align="left" class="mt-5" style="margin-left: 470px">Kepala Sekolah </p>
+    <div class="row">
+      <div class="col-md-6">
+        <p align="right" style="margin-right: 470px" id="tanggal" class="mb-5">Muaro Jambi, {{tgl_indo(date('Y-m-d')) }}</p>
+        <p align="right" class="mt-5" style="margin-right: 505px">Kepala Perpustakaan</p>
+      </div>
+      <div class="col-md-6">
+        <p align="left" style="margin-left: 470px" id="tanggal" class="mb-5">Muaro Jambi, {{tgl_indo(date('Y-m-d')) }}</p>
+        <p align="left" class="mt-5" style="margin-left: 470px">Kepala Sekolah </p>
+      </div>
+    </div>
 </body>
 </html>
